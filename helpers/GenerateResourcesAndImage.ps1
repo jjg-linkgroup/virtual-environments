@@ -99,6 +99,10 @@ Function GenerateResourcesAndImage {
         [Parameter(Mandatory = $True)]
         [string] $SubscriptionId,
         [Parameter(Mandatory = $True)]
+        [string] $VnetName,
+        [Parameter(Mandatory = $True)]
+        [string] $VnetSubnetName,
+        [Parameter(Mandatory = $True)]
         [string] $ResourceGroupName,
         [Parameter(Mandatory = $True)]
         [ImageType] $ImageType,
@@ -231,6 +235,8 @@ Function GenerateResourcesAndImage {
         -var "client_secret=$($ServicePrincipalClientSecret)" `
         -var "subscription_id=$($SubscriptionId)" `
         -var "tenant_id=$($tenantId)" `
+        -var " virtual_network_name =$($VnetName)" `
+        -var "virtual_network_subnet_name=$($VnetSubnetName)" `
         -var "location=$($AzureLocation)" `
         -var "resource_group=$($ResourceGroupName)" `
         -var "storage_account=$($storageAccountName)" `
